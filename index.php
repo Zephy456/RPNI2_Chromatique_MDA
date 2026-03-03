@@ -1,1 +1,1 @@
-<?php echo allo ?>
+<?php echo "allo" ?>
