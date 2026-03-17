@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'rpni2_monagence' );
 
 /** Database username */
-define( 'DB_USER', 'rpni2_user' );
+define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'rpni2_mdp' );
+define( 'DB_PASSWORD', 'root' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
@@ -71,7 +71,7 @@ define( 'NONCE_SALT',       'CxvlGV3D0!LceZj@HiFg Y(ixx1)D]{-2XbsF7)1,PYZ2[^^rdb
  *
  * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
  */
-$table_prefix = 'ag_';
+$table_prefix = 'wp_';
 
 /**
  * For developers: WordPress debugging mode.
