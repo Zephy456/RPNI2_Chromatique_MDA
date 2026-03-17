@@ -184,4 +184,24 @@ add_action('init', 'agence_services_custom_post', 0);
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
 }
+
+if (function_exists('add_image_size')) {
+    add_image_size('image-single', 768, 432, true);
+    add_image_size('image-bande', 1000, 320, true);
+}
+
+add_filter('jpeg_quality', function () {
+    return 100;
+});
+
+add_filter('intermediate_image_sizes_advanced', 'prefix_remove_default_images');
+function prefix_remove_default_images($sizes)
+{
+    unset($sizes['thumbnail']);
+    unset($sizes['medium']);
+    unset($sizes['large']);
+    unset($sizes['medium_large']);
+    unset($sizes['1536x1536']);
+    return $sizes;
+}
 ?>
