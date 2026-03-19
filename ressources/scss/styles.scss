@@ -30,4 +30,20 @@
 /** Normalize **/
 @use 'librairies/normalize.scss';
 
+// 2. Base & Global (Background du site)
+@import 'base/background';
+
+// 3. Éléments réutilisables (Boutons, Images)
+@import 'composants/boutons';
+@import 'components/images';
+
+// 4. Structure (Haut et Bas de page)
+@import 'nav/header';
+@import 'nav/footer';
+
+// 5. Pages spécifiques
+@import 'pages/accueil';
+@import 'pages/volets';
+@import 'pages/nouvelles';
+@import 'pages/equipe';
 
