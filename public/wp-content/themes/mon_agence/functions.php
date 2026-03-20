@@ -194,14 +194,58 @@ add_filter('jpeg_quality', function () {
     return 100;
 });
 
-add_filter('intermediate_image_sizes_advanced', 'prefix_remove_default_images');
-function prefix_remove_default_images($sizes)
-{
-    unset($sizes['thumbnail']);
-    unset($sizes['medium']);
-    unset($sizes['large']);
-    unset($sizes['medium_large']);
-    unset($sizes['1536x1536']);
+add_filter( 'intermediate_image_sizes_advanced', 'prefix_remove_default_images');
+function prefix_remove_default_images ( $sizes ) {
+    unset( $sizes['thumbnail'] ); // 150px
+    unset( $sizes['medium'] ); // 300px 
+    unset( $sizes['large'] ); // 1024px 
+    unset( $sizes['medium_large'] ); // 768px
+    unset( $sizes['1536x536'] );
     return $sizes;
 }
+
+/* Ajout de nouveaux formats d'images générés par WordPress */
+if(function_exists ( "add_image_size" )){
+    add_image_size( "image-single", 768, 432, true);
+    add_image_size( "image-bande", 1000, 320, true);
+}
+
+/* Désactivation de la compression automatique des images */
+add_filter( 'jpeg_quality', 'my_prefix_regenerate_thumbnail_quality');
+function my_prefix_regenerate_thumbnail_quality() {
+    return 100;
+}
+
+/* Création du réglage "Image mise en avant" */
+if(function_exists('add_theme_support')){
+    add_theme_support('post-thumbnails');
+}
 ?>
+
+
+<?php // À ajouter dans un gabarit afficher l'image à la une ?>
+<?php if ( has_post_thumbnail() ) : ?>
+    		<?php the_post_thumbnail(); ?>
+<?php endif; ?>
+
+
+
+<?php
+$image = get_field('image_de_test'); // image_de_test est le nom du ACF
+echo wp_get_attachment_image( $image['id'], 'large' ); // large est le format à afficher
+?>
+
+<?php 
+    // Utiliser le code ci-dessous pour créer une image responsive
+    if(has_post_thumbnail()){
+        $sizes=array();
+        $sizes[0]=wp_get_attachment_image_src(get_post_thumbnail_id(),"large");
+        $sizes[1]=wp_get_attachment_image_src(get_post_thumbnail_id(),"medium");
+        $sizes[2]=wp_get_attachment_image_src(get_post_thumbnail_id(),"thumbnail");?>
+
+<picture>
+    <source media="(min-width: 801px)" srcset="<?php echo $sizes[0][0]; ?>">
+    <source media="(min-width: 601px)" srcset="<?php echo $sizes[1][0]; ?>">
+    <img src="<?php echo $sizes[2][0];?>" alt="<?php the_title();?>" title="<?php the_title();?>">
+</picture>
+<?php } ?>
