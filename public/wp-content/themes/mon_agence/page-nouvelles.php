@@ -1,5 +1,5 @@
 <?php
-/* Template name: Services */
+/* Template name: Nouvelles */
 get_header();
 ?>
 
@@ -7,7 +7,7 @@ get_header();
     <?php //var_dump($post); //Ce que reçoit la page
     $posts = get_posts(array(
         'posts_per_page' => -1,
-        'post_type'    => 'services',
+        'post_type'    => 'nouvelles',
         'post_status' => 'publish',
         'orderby' => 'the_title',
         'order' => 'ASC',
