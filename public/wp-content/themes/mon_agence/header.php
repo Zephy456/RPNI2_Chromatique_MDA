@@ -18,15 +18,15 @@
 
 <body>
     <header class="entete">
-        <img src="<?php echo get_template_directory_uri(); ?>/liaisons/images/logo_beige.png" alt="Logo">
-        <h1 class="entete__titre">
-            <a href="<?php bloginfo("url"); ?>" title="<?php bloginfo("name"); ?>"><?php bloginfo("name"); ?></a>
-        </h1>
-        <h2 class="entete__slogan"><?php bloginfo("description"); ?></h2>
-    </header>
     <?php if (has_nav_menu("principal")) { ?>
         <nav class="navigation">
+        <a href="<?php bloginfo("url"); ?>" title="<?php bloginfo("name"); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/liaisons/images/logo_beige.png" alt="Logo">
+        </a>
             <?php wp_nav_menu(array("theme_location" => "principal")); ?>
         </nav>
     <?php } ?>
+        <h2 class="entete__slogan"><?php bloginfo("description"); ?></h2>
+    </header>
+
     <div class="contenu">
