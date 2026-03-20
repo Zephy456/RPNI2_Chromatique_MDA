@@ -26,7 +26,7 @@
             <?php wp_nav_menu(array("theme_location" => "principal")); ?>
         </nav>
     <?php } ?>
-        <h2 class="entete__slogan"><?php bloginfo("description"); ?></h2>
+        <!-- <h2 class="entete__slogan"><?php bloginfo("description"); ?></h2> -->
     </header>
 
     <div class="contenu">
