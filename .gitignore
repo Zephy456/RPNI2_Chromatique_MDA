@@ -3,6 +3,5 @@
 .dart-sass/
 node_modules/
 package-lock.json
-
+ressources/SQL/
 public/.htaccess
-public/wp-config.php
