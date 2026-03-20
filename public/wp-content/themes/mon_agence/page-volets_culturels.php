@@ -3,7 +3,7 @@
 get_header();
 ?>
 
-<main class="page">
+<main class="page_volets-culturels">
     <?php the_content() ?>
         <?php
         //Requête et boucle d'affichage des articles avec ACF
