@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /**
- * @author Prenom Nom courriel
+ * @author Yannick Blanchet courriel
  * @todo Lier les modules avec des instructions @import
  * @todo Compléter selon l'énoncé de l'exercice
  */
@@ -28,22 +28,41 @@
 /****** Librairies ******/
 
 /** Normalize **/
-@use 'librairies/normalize.scss';
+@import '../../node_modules/normalize.scss/normalize.scss';
 
-// 2. Base & Global (Background du site)
-@import 'base/background';
+/**** UTILITAIRES ****/
 
-// 3. Éléments réutilisables (Boutons, Images)
-@import 'composants/boutons';
-@import 'components/images';
+/** Variables **/
+@import 'utilitaires/variables';
 
-// 4. Structure (Haut et Bas de page)
-@import 'nav/header';
-@import 'nav/footer';
+/** Mixins **/
+@import 'utilitaires/mixins';
 
-// 5. Pages spécifiques
-@import 'pages/accueil';
-@import 'pages/volets';
-@import 'pages/nouvelles';
-@import 'pages/equipe';
+/****** BASE ******/
+
+/** Typographie **/
+@import 'base/typo';
+
+/** Hyperliens **/
+@import 'base/hyperlien';
+
+/** Boutons **/
+@import 'base/bouton';
+
+/****** LAYOUT ******/
+/** Styles généraux de mise en page**/
+@import 'layout/general';
+
+/****** MODULES ******/
+/** entête de page **/
+@import 'layout/entete';
+/** navigation **/
+@import 'modules/navigation';
+/** pied de page **/
+@import 'layout/piedpage';
+/** article WP **/
+@import 'modules/article';
+/** barres latérales  optionnelles**/
+//@import 'modules/barredroite';
+//@import 'modules/barregauche';
 
