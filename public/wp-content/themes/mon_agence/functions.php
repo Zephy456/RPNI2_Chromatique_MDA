@@ -1,15 +1,3 @@
-<!-- <?php
-        //initialise la fonctionnalité de gestion des menus pour ce thème
-        if (function_exists("register_nav_menus")) {
-            register_nav_menus(
-                array(
-                    "principal" => "Menu principal",
-                    "secondaire" => "Menu secondaire"
-                )
-            );
-        }
-        ?> -->
-
 <?php
 //initialise la fonctionnalité de gestion des menus pour ce thème
 if (function_exists("register_nav_menus")) {
@@ -20,9 +8,6 @@ if (function_exists("register_nav_menus")) {
     );
 }
 
-?>
-
-<?php
 //Déclaration des Réalisations
 function agence_realisations_custom_post()
 {
@@ -71,9 +56,7 @@ function agence_realisations_custom_post()
 }
 
 add_action('init', 'agence_realisations_custom_post', 0);
-?>
 
-<?php
 //Déclaration de l'Équipe
 function agence_equipe_custom_post()
 {
@@ -125,8 +108,7 @@ function agence_equipe_custom_post()
 }
 
 add_action('init', 'agence_equipe_custom_post', 0);
-?>
-<?php
+
 //Déclaration des Services
 function agence_services_custom_post()
 {
@@ -178,9 +160,7 @@ function agence_services_custom_post()
 }
 
 add_action('init', 'agence_services_custom_post', 0);
-?>
 
-<?php
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
 }
@@ -221,31 +201,3 @@ if(function_exists('add_theme_support')){
     add_theme_support('post-thumbnails');
 }
 ?>
-
-
-<?php // À ajouter dans un gabarit afficher l'image à la une ?>
-<?php if ( has_post_thumbnail() ) : ?>
-    		<?php the_post_thumbnail(); ?>
-<?php endif; ?>
-
-
-
-<?php
-$image = get_field('image_de_test'); // image_de_test est le nom du ACF
-echo wp_get_attachment_image( $image['id'], 'large' ); // large est le format à afficher
-?>
-
-<?php 
-    // Utiliser le code ci-dessous pour créer une image responsive
-    if(has_post_thumbnail()){
-        $sizes=array();
-        $sizes[0]=wp_get_attachment_image_src(get_post_thumbnail_id(),"large");
-        $sizes[1]=wp_get_attachment_image_src(get_post_thumbnail_id(),"medium");
-        $sizes[2]=wp_get_attachment_image_src(get_post_thumbnail_id(),"thumbnail");?>
-
-<picture>
-    <source media="(min-width: 801px)" srcset="<?php echo $sizes[0][0]; ?>">
-    <source media="(min-width: 601px)" srcset="<?php echo $sizes[1][0]; ?>">
-    <img src="<?php echo $sizes[2][0];?>" alt="<?php the_title();?>" title="<?php the_title();?>">
-</picture>
-<?php } ?>

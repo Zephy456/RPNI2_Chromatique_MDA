@@ -13,9 +13,21 @@ echo "single-equipe.php";
             <h2 class="article__titre"><?php the_title() ?></h2>
         </header>
 
-
-
         <?php  //remplacer cette balise pas le code de l'étape 3 ici! 
+        
+        ?>
+        <?php  //remplacer cette balise pas le code de l'étape 3 ici! 
+        if (isset($_GET['fiche_id'])) {
+            $fiche_id = $_GET['fiche_id'];
+            // Afficher le contenu selon l'ID
+            if ($fiche_id == '1') {
+                return "<h2>Fiche A</h2><p>Contenu de la fiche 1</p>";
+            } elseif ($fiche_id == '2') {
+                return "<h2>Fiche B</h2><p>Contenu de la fiche 2</p>";
+            } else {
+                return "Fiche non trouvée.";
+            }
+        }
         ?>
 
 

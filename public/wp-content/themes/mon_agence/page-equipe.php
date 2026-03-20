@@ -4,7 +4,8 @@ get_header();
 ?>
 
 <main class="page">
-
+    
+<?php  the_content() ?>
     <?php //var_dump($post); //Ce que reçoit la page
     $posts = get_posts(array(
         'posts_per_page' => -1,
@@ -23,9 +24,7 @@ get_header();
             <article class="article">
                 <header class="article__entete">
                     <h2 class="article__titre">
-                        <?php //affiche le lien et le titre de l'article'
-                        ?>
-                        <a class="article__lien" href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+                        <?php the_title() ?>
                     </h2>
                 </header>
                 <p class="article__texte">
@@ -33,8 +32,8 @@ get_header();
                     the_excerpt();
                     ?>
                 </p>
+                <button type="button"><a class="article__lien" href="<?php the_permalink(); ?>">En savoir plus</a></button>
                 <?php
-
                 $image_info = get_field("photo_membre");
 
                 if ($image_info != null) {
