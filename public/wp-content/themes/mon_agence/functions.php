@@ -127,35 +127,35 @@ function agence_equipe_custom_post()
 add_action('init', 'agence_equipe_custom_post', 0);
 ?>
 <?php
-//Déclaration des Services
-function agence_services_custom_post()
+//Déclaration des Nouvelles
+function agence_nouvelles_custom_post()
 {
 
     //On rentre les différentes dénominations de notre article personnalisé type
     //qui seront affichées dans l'interface administrative...
     $labels = array(
         // Le nom au pluriel
-        'name'                => _x('Services de Mon Agence', 'Post Type General Name'),
+        'name'                => _x('Nouvelles de MDA', 'Post Type General Name'),
         // Le nom au singulier
-        'singular_name'       => _x('Services', 'Post Type Singular Name'),
+        'singular_name'       => _x('Nouvelles', 'Post Type Singular Name'),
         // Le libellé affiché dans le menu
-        'menu_name'           => __('Services'),
+        'menu_name'           => __('Nouvelles'),
         //Les différents libellés de l'interface administrative
-        'all_items'           => __('Nos services'),
-        'view_item'           => __('Voir nos services'),
-        'add_new_item'        => __('Ajouter un service'),
+        'all_items'           => __('Nos nouvelles'),
+        'view_item'           => __('Voir nos nouvelles'),
+        'add_new_item'        => __('Ajouter une nouvelle'),
         'add_new'             => __('Ajouter'),
-        'edit_item'           => __('Editer un service'),
-        'update_item'         => __('Modifier un service'),
-        'search_items'        => __('Rechercher un service'),
+        'edit_item'           => __('Editer une nouvelle'),
+        'update_item'         => __('Modifier une nouvelle'),
+        'search_items'        => __('Rechercher une nouvelle'),
         'not_found'           => __('Non trouvé'),
         'not_found_in_trash'  => __('Non trouvé dans la corbeille')
     );
 
     //On peut définir ici d'autres options pour notre type d'article personnalisé
     $args = array(
-        'label'               => __('Nos services'),
-        'description'         => __('Tous sur nos services'),
+        'label'               => __('Nos nouvelles'),
+        'description'         => __('Tous sur nos nouvelles'),
         'labels'              => $labels,
         'supports'            => array(
             'title',
@@ -170,12 +170,12 @@ function agence_services_custom_post()
         'hierarchical'        => false,
         'public'              => true,
         'has_archive'         => true,
-        'rewrite'              => array('slug' => 'services')
+        'rewrite'              => array('slug' => 'nouvelles')
     );
 
-    // On enregistre notre type d'article personnalisé qu'on nomme ici "volets_culturels" et ses arguments
-    register_post_type('services', $args);
+    // On enregistre notre type d'article personnalisé qu'on nomme ici "nouvelles" et ses arguments
+    register_post_type('nouvelles', $args);
 }
 
-add_action('init', 'agence_services_custom_post', 0);
+add_action('init', 'agence_nouvelles_custom_post', 0);
 ?>
