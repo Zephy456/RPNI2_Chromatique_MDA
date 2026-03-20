@@ -18,7 +18,7 @@
 
 <body>
     <header class="entete">
-        <img src="wp-content/themes/mon_agence/liaisons/images/logo_beige.png" alt="Girl in a jacket">
+        <img src="<?php echo get_template_directory_uri(); ?>/liaisons/images/logo_beige.png" alt="Logo">
         <h1 class="entete__titre">
             <a href="<?php bloginfo("url"); ?>" title="<?php bloginfo("name"); ?>"><?php bloginfo("name"); ?></a>
         </h1>
