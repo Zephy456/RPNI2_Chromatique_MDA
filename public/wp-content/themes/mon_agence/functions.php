@@ -1,15 +1,3 @@
-<!-- <?php
-        //initialise la fonctionnalité de gestion des menus pour ce thème
-        if (function_exists("register_nav_menus")) {
-            register_nav_menus(
-                array(
-                    "principal" => "Menu principal",
-                    "secondaire" => "Menu secondaire"
-                )
-            );
-        }
-        ?> -->
-
 <?php
 //initialise la fonctionnalité de gestion des menus pour ce thème
 if (function_exists("register_nav_menus")) {
@@ -20,11 +8,8 @@ if (function_exists("register_nav_menus")) {
     );
 }
 
-?>
-
-<?php
-//Déclaration des Volets culturels
-function agence_volets_culturels_custom_post()
+//Déclaration des Réalisations
+function agence_realisations_custom_post()
 {
     $labels = array(
         // Le nom au pluriel
@@ -70,10 +55,8 @@ function agence_volets_culturels_custom_post()
     register_post_type('volets_culturels', $args);
 }
 
-add_action('init', 'agence_volets_culturels_custom_post', 0);
-?>
+add_action('init', 'agence_realisations_custom_post', 0);
 
-<?php
 //Déclaration de l'Équipe
 function agence_equipe_custom_post()
 {
@@ -125,10 +108,9 @@ function agence_equipe_custom_post()
 }
 
 add_action('init', 'agence_equipe_custom_post', 0);
-?>
-<?php
-//Déclaration des Nouvelles
-function agence_nouvelles_custom_post()
+
+//Déclaration des Services
+function agence_services_custom_post()
 {
 
     //On rentre les différentes dénominations de notre article personnalisé type
@@ -173,9 +155,49 @@ function agence_nouvelles_custom_post()
         'rewrite'              => array('slug' => 'nouvelles')
     );
 
-    // On enregistre notre type d'article personnalisé qu'on nomme ici "nouvelles" et ses arguments
-    register_post_type('nouvelles', $args);
+    // On enregistre notre type d'article personnalisé qu'on nomme ici "realisations" et ses arguments
+    register_post_type('services', $args);
 }
 
-add_action('init', 'agence_nouvelles_custom_post', 0);
+add_action('init', 'agence_services_custom_post', 0);
+
+if (function_exists('add_theme_support')) {
+    add_theme_support('post-thumbnails');
+}
+
+if (function_exists('add_image_size')) {
+    add_image_size('image-single', 768, 432, true);
+    add_image_size('image-bande', 1000, 320, true);
+}
+
+add_filter('jpeg_quality', function () {
+    return 100;
+});
+
+add_filter( 'intermediate_image_sizes_advanced', 'prefix_remove_default_images');
+function prefix_remove_default_images ( $sizes ) {
+    unset( $sizes['thumbnail'] ); // 150px
+    unset( $sizes['medium'] ); // 300px 
+    unset( $sizes['large'] ); // 1024px 
+    unset( $sizes['medium_large'] ); // 768px
+    unset( $sizes['1536x536'] );
+    return $sizes;
+}
+
+/* Ajout de nouveaux formats d'images générés par WordPress */
+if(function_exists ( "add_image_size" )){
+    add_image_size( "image-single", 768, 432, true);
+    add_image_size( "image-bande", 1000, 320, true);
+}
+
+/* Désactivation de la compression automatique des images */
+add_filter( 'jpeg_quality', 'my_prefix_regenerate_thumbnail_quality');
+function my_prefix_regenerate_thumbnail_quality() {
+    return 100;
+}
+
+/* Création du réglage "Image mise en avant" */
+if(function_exists('add_theme_support')){
+    add_theme_support('post-thumbnails');
+}
 ?>
