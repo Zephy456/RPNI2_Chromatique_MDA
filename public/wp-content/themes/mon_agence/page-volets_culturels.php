@@ -1,5 +1,5 @@
 <?php
-/* Template name: Réalisations */
+/* Template name: Volets culturels */
 get_header();
 ?>
 
@@ -9,7 +9,7 @@ get_header();
     //À mettre dans les pages utilisant les articles personnalisés et adapter****************
     $posts = get_posts(array(
         'posts_per_page' => -1,
-        'post_type'    => 'realisations',
+        'post_type'    => 'volets_culturels',
         'post_status' => 'publish',
         'orderby' => 'the_title',
         'order' => 'ASC',
