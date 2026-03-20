@@ -28,7 +28,7 @@
 /****** Librairies ******/
 
 /** Normalize **/
-@import '../../node_modules/normalize.scss/normalize.scss';
+@import 'modules/_normalize.scss';
 
 /**** UTILITAIRES ****/
 
@@ -65,4 +65,8 @@
 /** barres latérales  optionnelles**/
 //@import 'modules/barredroite';
 //@import 'modules/barregauche';
-
+/** pages **/
+@import 'pages/accueil';
+@import 'pages/volets';
+@import 'pages/nouvelles';
+@import 'pages/equipe';
