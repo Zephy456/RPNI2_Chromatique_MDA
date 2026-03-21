@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'rpni2_monagence' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'rpni2_user' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', 'rpni2_mdp' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
@@ -88,7 +88,6 @@ $table_prefix = 'ag_';
 define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
-define('FS_METHOD', 'direct');
 
 
 
