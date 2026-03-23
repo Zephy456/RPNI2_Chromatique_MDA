@@ -1,6 +1,6 @@
 <?php
 get_header();
-echo "single-services.php";
+echo "single-nouvelles.php";
 ?>
 
 <main class="page">
