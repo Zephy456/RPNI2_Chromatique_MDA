@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "public/index.php",
   "scripts": {
-    "sass":"./dart-sass/sass --watch ressources/scss:public/wp-content/themes/mon_agence/liaisons/css"
+    "sass": "./dart-sass/sass --watch ressources/scss:public/wp-content/themes/mon_agence/liaisons/css"
   },
   "dependencies": {
     "normalize.scss": "^0.1.0",
